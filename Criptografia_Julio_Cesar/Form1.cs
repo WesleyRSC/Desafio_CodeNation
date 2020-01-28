@@ -9,6 +9,7 @@ using System.Net;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Criptografia_Julio_Cesar
 {
@@ -17,13 +18,16 @@ namespace Criptografia_Julio_Cesar
         public Form1()
         {
             InitializeComponent();
+            btnDescriptografar.Enabled = false;
         }
         Client baseDados;
+        string json = "";
 
         private void btnReceberDados_Click(object sender, EventArgs e)
         {
+            json = "";
             ReceberAPI();
-
+            btnDescriptografar.Enabled = true;
         }
 
         public void ReceberAPI()
@@ -44,19 +48,78 @@ namespace Criptografia_Julio_Cesar
         }
         public void SepararCampos(object objeto)
         {
-
-            string[] dados = objeto.ToString().Split(',');
-            baseDados = new Client(dados[0],dados[1],dados[2],dados[3],dados[4]);
-            txtDados.Text = baseDados.NumeroDeCasas + Environment.NewLine +
-                baseDados.Token + Environment.NewLine +
-                baseDados.Cifrado + Environment.NewLine +
-                baseDados.Decifrado + Environment.NewLine +
-                baseDados.ResumoCriptografico + Environment.NewLine;
+            baseDados = JsonConvert.DeserializeObject<Client>(objeto.ToString());
+            Exibir();
         }
 
         public void Descriptografar()
         {
+            string frase = "";
+            //a=97
+            //z=122
+            foreach (char letra in baseDados.Cifrado)
+            {
+                //letra está considerando o caracter em ASCII para a comparação com inteiro
+                if (letra >= 97 && letra <= 122)
+                {
+                    int aux = letra - baseDados.Numero_Casas;
+                    if (aux < 97)
+                    {
+                        frase += Convert.ToChar(122 + (aux - 96));
+                    }
+                    else
+                        frase += Convert.ToChar(aux);
+                }
+                else
+                {
+                    frase += Convert.ToChar(letra);
+                }
+            }
 
+            btnDescriptografar.Enabled = false;
+            txtDados.Clear();
+            txtDados.Text = frase;
+            baseDados.Decifrado = frase;
+        }
+
+        private void btnDescriptografar_Click(object sender, EventArgs e)
+        {
+            json = "";
+            Descriptografar();
+        }
+
+        private void btnVerJson_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CriarJson();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            Exibir();
+        }
+
+        public void CriarJson()
+        {
+            json = "";
+            json = JsonConvert.SerializeObject(baseDados);
+        }
+
+        public void Exibir()
+        {
+            txtDados.Text = "Numero_Casas - " + baseDados.Numero_Casas + Environment.NewLine + Environment.NewLine +
+            "Cifrado - " + baseDados.Cifrado + Environment.NewLine + Environment.NewLine +
+            "Decifrado - " + baseDados.Decifrado + Environment.NewLine + Environment.NewLine +
+            "Token - " + baseDados.Token + Environment.NewLine + Environment.NewLine +
+            "Resumo Criptografico - " + baseDados.ResumoCriptografico;
+
+            if (json!="")
+            {
+                txtDados.Text+= Environment.NewLine +
+            Environment.NewLine + "JSON - " + json;
+            }
         }
     }
 }

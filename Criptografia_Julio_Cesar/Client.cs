@@ -8,23 +8,21 @@ namespace Criptografia_Julio_Cesar
 {
     class Client
     {
-        private string numeroDeCasas;
+        private int numero_Casas;
         private string token;
         private string cifrado;
         private string decifrado;
         private string resumoCriptografico;
-        private int numero;
-        public string NumeroDeCasas
+        public int Numero_Casas
         {
             get
             {
-                Numero = Convert.ToInt32(numeroDeCasas.Substring(numeroDeCasas.IndexOf(':')+1));
-                return numeroDeCasas;
+                return numero_Casas;
             }
 
             set
             {
-                numeroDeCasas = value;
+                numero_Casas = value;
             }
         }
 
@@ -80,22 +78,9 @@ namespace Criptografia_Julio_Cesar
             }
         }
 
-        public int Numero
+        public Client(int numero_casas, string token,string cifrado,string decifrado,string resumo)
         {
-            get
-            {
-                return numero;
-            }
-
-            set
-            {
-                numero = value;
-            }
-        }
-
-        public Client(string casas, string token,string cifrado,string decifrado,string resumo)
-        {
-            NumeroDeCasas = casas;
+            Numero_Casas = numero_casas;
             Token = token;
             Cifrado = cifrado;
             Decifrado = decifrado;
