@@ -1,0 +1,9 @@
+c:\users\wcampos\documents\visual studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\bin\Debug\Criptografia_Julio_Cesar.exe.config
+c:\users\wcampos\documents\visual studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\bin\Debug\Criptografia_Julio_Cesar.exe
+c:\users\wcampos\documents\visual studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\bin\Debug\Criptografia_Julio_Cesar.pdb
+c:\users\wcampos\documents\visual studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.Form1.resources
+c:\users\wcampos\documents\visual studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.Properties.Resources.resources
+c:\users\wcampos\documents\visual studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.csproj.GenerateResource.Cache
+c:\users\wcampos\documents\visual studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.exe
+c:\users\wcampos\documents\visual studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.pdb
+C:\Users\wcampos\Documents\Visual Studio 2015\Projects\Criptografia_Julio_Cesar\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.csprojAssemblyReference.cache
