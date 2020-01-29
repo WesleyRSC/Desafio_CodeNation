@@ -33,6 +33,7 @@ namespace Criptografia_Julio_Cesar
 
         public void ReceberAPI()
         {
+            //Recebe da API abaixo
             //https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=6eb77403e8fac5ad7c4e54b97c8fbaa456efc0e1
             var requisicaoWeb = WebRequest.CreateHttp("https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=6eb77403e8fac5ad7c4e54b97c8fbaa456efc0e1");
             requisicaoWeb.Method = "GET";
@@ -135,6 +136,11 @@ namespace Criptografia_Julio_Cesar
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
+            //Tem que enviar para a API
+            /*OBS: a API espera um arquivo sendo enviado como multipart/form-data, 
+             * como se fosse enviado por um formulário HTML, com um campo do tipo file com o nome answer. Considere isso ao enviar o arquivo.
+             */
+            //https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=6eb77403e8fac5ad7c4e54b97c8fbaa456efc0e1
             try
             {
                 if (baseDados.Decifrado != "")

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnReceberDados = new System.Windows.Forms.Button();
             this.btnDescriptografar = new System.Windows.Forms.Button();
             this.btnEnviar = new System.Windows.Forms.Button();
@@ -95,9 +96,10 @@
             this.Controls.Add(this.btnDescriptografar);
             this.Controls.Add(this.btnReceberDados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Cifra de Cesar";
             this.ResumeLayout(false);
             this.PerformLayout();
 
