@@ -19,3 +19,15 @@ C:\Users\wcampos\Desktop\EmuladorTC\Desafio_CodeNation\Criptografia_Julio_Cesar\
 C:\Users\wcampos\Desktop\EmuladorTC\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.Properties.Resources.resources
 C:\Users\wcampos\Desktop\EmuladorTC\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.csproj.GenerateResource.cache
 C:\Users\wcampos\Desktop\EmuladorTC\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.csproj.CopyComplete
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\bin\Debug\Criptografia_Julio_Cesar.exe.config
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\bin\Debug\Criptografia_Julio_Cesar.exe
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\bin\Debug\Criptografia_Julio_Cesar.pdb
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.csprojAssemblyReference.cache
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.Form1.resources
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.Properties.Resources.resources
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.csproj.GenerateResource.cache
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.csproj.CopyComplete
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.exe
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.pdb
