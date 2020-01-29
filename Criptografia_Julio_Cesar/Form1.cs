@@ -9,6 +9,7 @@ using System.Net;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 using Newtonsoft.Json;
 
 namespace Criptografia_Julio_Cesar
@@ -86,6 +87,8 @@ namespace Criptografia_Julio_Cesar
         {
             json = "";
             Descriptografar();
+            CalcularSHA1();
+            Exibir();
         }
 
         private void btnVerJson_Click(object sender, EventArgs e)
@@ -109,17 +112,46 @@ namespace Criptografia_Julio_Cesar
 
         public void Exibir()
         {
-            txtDados.Text = "Numero_Casas - " + baseDados.Numero_Casas + Environment.NewLine + Environment.NewLine +
-            "Cifrado - " + baseDados.Cifrado + Environment.NewLine + Environment.NewLine +
-            "Decifrado - " + baseDados.Decifrado + Environment.NewLine + Environment.NewLine +
-            "Token - " + baseDados.Token + Environment.NewLine + Environment.NewLine +
-            "Resumo Criptografico - " + baseDados.ResumoCriptografico;
-
-            if (json!="")
+            try
             {
-                txtDados.Text+= Environment.NewLine +
-            Environment.NewLine + "JSON - " + json;
+                txtDados.Text = "Numero_Casas - " + baseDados.Numero_Casas + Environment.NewLine + Environment.NewLine +
+                "Cifrado - " + baseDados.Cifrado + Environment.NewLine + Environment.NewLine +
+                "Decifrado - " + baseDados.Decifrado + Environment.NewLine + Environment.NewLine +
+                "Token - " + baseDados.Token + Environment.NewLine + Environment.NewLine +
+                "Resumo Criptografico - " + baseDados.ResumoCriptografico;
+
+                if (json != "")
+                {
+                    txtDados.Text += Environment.NewLine +
+                Environment.NewLine + "JSON - " + json;
+                }
             }
+            catch (Exception x)
+            {
+                MessageBox.Show("Sem dados para exibir");
+            }
+
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (baseDados.Decifrado != "")
+                    File.WriteAllText(Directory.GetCurrentDirectory() + "/answer.json", json);
+                else
+                    MessageBox.Show("É necessário Descriptografar a cifra antes de enviar");
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
+
+        public void CalcularSHA1()
+        {
+            var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(baseDados.Decifrado));
+            baseDados.ResumoCriptografico = string.Concat(hash.Select(b => b.ToString("x2")));
         }
     }
 }
