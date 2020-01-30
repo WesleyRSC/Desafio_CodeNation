@@ -31,3 +31,4 @@ C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\C
 C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.csproj.CopyComplete
 C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.exe
 C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\obj\Debug\Criptografia_Julio_Cesar.pdb
+C:\Users\wcampos\Desktop\Desafio_CodeNation\Criptografia_Julio_Cesar\bin\Debug\FormHTML.html

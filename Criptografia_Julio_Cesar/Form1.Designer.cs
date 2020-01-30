@@ -34,6 +34,7 @@
             this.btnEnviar = new System.Windows.Forms.Button();
             this.txtDados = new System.Windows.Forms.TextBox();
             this.btnVerJson = new System.Windows.Forms.Button();
+            this.wbbPaginaHTML = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // btnReceberDados
@@ -85,11 +86,20 @@
             this.btnVerJson.UseVisualStyleBackColor = true;
             this.btnVerJson.Click += new System.EventHandler(this.btnVerJson_Click);
             // 
+            // wbbPaginaHTML
+            // 
+            this.wbbPaginaHTML.Location = new System.Drawing.Point(12, 54);
+            this.wbbPaginaHTML.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbbPaginaHTML.Name = "wbbPaginaHTML";
+            this.wbbPaginaHTML.Size = new System.Drawing.Size(357, 289);
+            this.wbbPaginaHTML.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 384);
+            this.Controls.Add(this.wbbPaginaHTML);
             this.Controls.Add(this.btnVerJson);
             this.Controls.Add(this.txtDados);
             this.Controls.Add(this.btnEnviar);
@@ -112,6 +122,7 @@
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.TextBox txtDados;
         private System.Windows.Forms.Button btnVerJson;
+        private System.Windows.Forms.WebBrowser wbbPaginaHTML;
     }
 }
 

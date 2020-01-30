@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using Newtonsoft.Json;
 
+
 namespace Criptografia_Julio_Cesar
 {
     public partial class Form1 : Form
@@ -20,6 +21,7 @@ namespace Criptografia_Julio_Cesar
         {
             InitializeComponent();
             btnDescriptografar.Enabled = false;
+            wbbPaginaHTML.Visible = false;
         }
         Client baseDados;
         string json = "";
@@ -59,12 +61,12 @@ namespace Criptografia_Julio_Cesar
             string frase = "";
             //a=97
             //z=122
-            foreach (char letra in baseDados.Cifrado)
+            foreach (char letra in baseDados.cifrado)
             {
                 //letra está considerando o caracter em ASCII para a comparação com inteiro
                 if (letra >= 97 && letra <= 122)
                 {
-                    int aux = letra - baseDados.Numero_Casas;
+                    int aux = letra - baseDados.numero_casas;
                     if (aux < 97)
                     {
                         frase += Convert.ToChar(122 + (aux - 96));
@@ -81,7 +83,7 @@ namespace Criptografia_Julio_Cesar
             btnDescriptografar.Enabled = false;
             txtDados.Clear();
             txtDados.Text = frase;
-            baseDados.Decifrado = frase;
+            baseDados.decifrado = frase;
         }
 
         private void btnDescriptografar_Click(object sender, EventArgs e)
@@ -113,13 +115,14 @@ namespace Criptografia_Julio_Cesar
 
         public void Exibir()
         {
+            wbbPaginaHTML.Visible = false;
             try
             {
-                txtDados.Text = "Numero_Casas - " + baseDados.Numero_Casas + Environment.NewLine + Environment.NewLine +
-                "Cifrado - " + baseDados.Cifrado + Environment.NewLine + Environment.NewLine +
-                "Decifrado - " + baseDados.Decifrado + Environment.NewLine + Environment.NewLine +
-                "Token - " + baseDados.Token + Environment.NewLine + Environment.NewLine +
-                "Resumo Criptografico - " + baseDados.ResumoCriptografico;
+                txtDados.Text = "Numero_Casas - " + baseDados.numero_casas + Environment.NewLine + Environment.NewLine +
+                "Cifrado - " + baseDados.cifrado + Environment.NewLine + Environment.NewLine +
+                "Decifrado - " + baseDados.decifrado + Environment.NewLine + Environment.NewLine +
+                "Token - " + baseDados.token + Environment.NewLine + Environment.NewLine +
+                "Resumo Criptografico - " + baseDados.resumo_criptografico;
 
                 if (json != "")
                 {
@@ -143,21 +146,45 @@ namespace Criptografia_Julio_Cesar
             //https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=6eb77403e8fac5ad7c4e54b97c8fbaa456efc0e1
             try
             {
-                if (baseDados.Decifrado != "")
+                if (baseDados.decifrado != "")
+                {
                     File.WriteAllText(Directory.GetCurrentDirectory() + "/answer.json", json);
+                }
                 else
                     MessageBox.Show("É necessário Descriptografar a cifra antes de enviar");
+                wbbPaginaHTML.Visible = true;
+                AbrirHtml();
+
             }
             catch (Exception x)
             {
                 MessageBox.Show(x.Message);
             }
+
         }
 
         public void CalcularSHA1()
         {
-            var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(baseDados.Decifrado));
-            baseDados.ResumoCriptografico = string.Concat(hash.Select(b => b.ToString("x2")));
+            var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(baseDados.decifrado));
+            baseDados.resumo_criptografico = string.Concat(hash.Select(b => b.ToString("x2")));
         }
+        
+        public void AbrirHtml()
+        {
+            // string arquivo = File.OpenRead().ToString();
+            wbbPaginaHTML.DocumentText = "<html> \n" +
+                "< head >\n" +
+                "< meta charset = 'utf-8' />\n" +
+                "< title ></ title >\n" +
+                "</ head >\n" +
+                "< body >\n" +
+                "< form name = 'form1' method = 'post' enctype = 'multipart/form-data' action = 'https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=6eb77403e8fac5ad7c4e54b97c8fbaa456efc0e1' > \n" +
+                "< input name = 'Arquivo' type = 'file' />\n" +
+                "< input  type = 'submit' value = 'Enviar' />\n" +
+                "</ form >\n" +
+                "</ body >\n" +
+                "</ html > ";
+        }
+
     }
 }
